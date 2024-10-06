@@ -1,0 +1,15 @@
+-- REMARKS CHANGE_EMPLOYEE_PASSWORD - change an employee's password from old to new.
+
+CREATE OR REPLACE PROCEDURE
+CHANGE_EMPLOYEE_PASSWORD(
+	p_emp_id IN NUMBER,
+	p_new_password IN VARCHAR2
+) AS
+BEGIN 
+	UPDATE EMPLOYEE_DETAILS
+	SET PASSWORD = p_new_password
+	WHERE EMP_ID = p_emp_id;
+
+	COMMIT;
+END CHANGE_EMPLOYEE_PASSWORD;
+/
